@@ -9,6 +9,15 @@ const app = Vue.createApp({
             confirmedName: ''
         };
     },
+    computed: {
+        fullname() {
+            console.log('Running')
+            if (this.name === '') {
+                return ''
+            }
+            return this.name + " " + "Rahman"
+        }
+    },
     methods: {
         outputGoal() {
             const randomNumber = Math.random();
@@ -23,14 +32,23 @@ const app = Vue.createApp({
         reduce(num) {
             this.counter -= num;
         },
-        setName(event, name) {
-            this.name = event.target.value + " " + name;
+        setName(event) {
+            this.name = event.target.value;
+        },
+        outputFullname() {
+            if (this.name === '') {
+                return ''
+            }
+            return this.name + " " + "Rahman"
         },
         confirmName() {
             this.confirmedName = this.name;
         },
         submitForm() {
             alert('Submitted')
+        },
+        resetInput() {
+            this.name = '';
         }
     }
 });
