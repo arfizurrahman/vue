@@ -13,7 +13,7 @@ const app = Vue.createApp({
     },
     watch: {
         // name(value) {
-        //     if (value === '') {
+         //     if (value === '') {
         //         this.fullname = ''
         //     } else {
         //         this.fullname = value + " " + this.lastName
