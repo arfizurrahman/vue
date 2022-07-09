@@ -25,7 +25,7 @@
 <script>
 export default {
     props: ['id'],
-    date() {
+    data() {
         return {
             selectedCoach: null
         }
@@ -39,7 +39,7 @@ export default {
         }
     },
     created() {
-        this.selectedCoach = this.$store.getters['coaches/coaches'].filter(c => c.id === this.id);
+        this.selectedCoach = this.$store.getters['coaches/coaches'].find(c => c.id === this.id);
     }
 }
 </script>
