@@ -5,11 +5,12 @@
         <div>
             <base-badge v-for="area in coach.areas" :key="area" :type="area" :title="area"></base-badge>
         </div>
+        <div class="actions">
+            <base-button mode="outline" link :to="coachContactLink">Contact</base-button>
+            <base-button link :to="coachDetailsLink">View Details</base-button>
+        </div>
     </li>
-    <div class="actions">
-        <base-button mode="outline" link :to="coachContactLink">Contact</base-button>
-        <base-button link :to="coachDetailsLink">View Details</base-button>
-    </div>
+
 </template>
 
 <script>
@@ -51,6 +52,7 @@ div {
 }
 
 .actions {
+    margin-top: 1rem;
     display: flex;
     justify-content: flex-end;
 }
