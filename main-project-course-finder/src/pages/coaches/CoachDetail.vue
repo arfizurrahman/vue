@@ -1,25 +1,27 @@
 <template>
-    <section v-if="selectedCoach">
-        <base-card>
-            <h2>{{ fullName }}</h2>
-            <h3>${{ selectedCoach.hourlyRate }}/hour</h3>
-        </base-card>
-    </section>
-    <section v-if="selectedCoach">
-        <base-card>
-            <header>
-                <h2>Interested? Reach out now!</h2>
-                <base-button link :to="contactLink">Contact</base-button>
-            </header>
-            <router-view></router-view>
-        </base-card>
-    </section>
-    <section v-if="selectedCoach">
-        <base-card>
-            <base-badge v-for="area in selectedCoach.areas" :key="area" :type="area" :title="area"></base-badge>
-            <p>{{ selectedCoach.description }}</p>
-        </base-card>
-    </section>
+    <div>
+        <section v-if="selectedCoach">
+            <base-card>
+                <h2>{{ fullName }}</h2>
+                <h3>${{ selectedCoach.hourlyRate }}/hour</h3>
+            </base-card>
+        </section>
+        <section v-if="selectedCoach">
+            <base-card>
+                <header>
+                    <h2>Interested? Reach out now!</h2>
+                    <base-button link :to="contactLink">Contact</base-button>
+                </header>
+                <router-view></router-view>
+            </base-card>
+        </section>
+        <section v-if="selectedCoach">
+            <base-card>
+                <base-badge v-for="area in selectedCoach.areas" :key="area" :type="area" :title="area"></base-badge>
+                <p>{{ selectedCoach.description }}</p>
+            </base-card>
+        </section>
+    </div>
 </template>
 
 <script>
