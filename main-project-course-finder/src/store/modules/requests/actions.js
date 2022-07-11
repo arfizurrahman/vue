@@ -23,13 +23,16 @@ export default {
     },
     async fetchRequests(context,){
         const coachId = context.rootGetters.userId;
-        const response = await fetch(`https://vue-http-demo-eac0d-default-rtdb.asia-southeast1.firebasedatabase.app/requests/${coachId}.json`);
+        
+        const token = context.rootGetters.token;
+
+        const response = await fetch(`https://vue-http-demo-eac0d-default-rtdb.asia-southeast1.firebasedatabase.app/requests/${coachId}.json?auth=${token}`);
 
         const responseData = await response.json();
 
         if(!response.ok){
             const error  = new Error(responseData.message || 'Failed to fetch request');
-            return error;
+            throw error;
         }
 
         const requests = [];
@@ -39,7 +42,7 @@ export default {
                 id: key,
                 coachId,
                 userEmail: responseData[key].userEmail,
-                message: responseData[key].userEmail,
+                message: responseData[key].message,
             }
 
             requests.push(request);
