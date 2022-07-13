@@ -1,14 +1,20 @@
 <template>
-    <section>
-        <header><h1>My Friends</h1></header>
-        <ul>
-            <friend-contact></friend-contact>
-            <friend-contact></friend-contact>
-        </ul>
-    </section>
+  <section>
+    <header>
+      <h1>My Friends</h1>
+    </header>
+    <ul>
+      <friend-contact></friend-contact>
+      <friend-contact></friend-contact>
+    </ul>
+  </section>
 </template>
 
-<script>
+<script setup>
+const props = defineProps(['userName'])
+</script>
+
+<!-- <script>
 export default {
     data(){
         return{
@@ -29,12 +35,11 @@ export default {
         }
     }
 }
-</script>
+</script> -->
 
 
 
 <style>
-
 @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
 
 * {
@@ -100,5 +105,4 @@ header {
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
-
 </style>
